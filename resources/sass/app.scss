@@ -1,0 +1,220 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+@mixin filterTransition($h) {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+
+    &-enter {
+        opacity: 0;
+        height: 0;
+    }
+    &-enter-active {
+        opacity: 1;
+        height: $h;
+        transition: opacity 0.25s ease-in, height 0.25s ease-in-out;
+    }
+    &-enter-done {
+        opacity: 1;
+        height: $h;
+    }
+    &-exit {
+        opacity: 1;
+        height: $h;
+    }
+    &-exit-active {
+        height: 0;
+        transition: opacity 0.25s ease-in, height 0.25s ease-in-out;
+    }
+    &-exit-done {
+        opacity: 0;
+        height: 0;
+    }
+}
+
+@mixin customTransition(
+    $time: 0.25s,
+    $delay: 0s,
+    $transitionEffect: ease-in-out,
+    $property: transform,
+    $initalValue: translateX(-500px),
+    $finalValue: translateX(0),
+    $exitTime: 0.25s
+) {
+    opacity: 0;
+
+    &-appear {
+        opacity: 0;
+        #{$property}: $initalValue;
+    }
+    &-appear-active {
+        opacity: 1;
+        #{$property}: $finalValue;
+        transition: opacity $time $transitionEffect,
+            $property $time $transitionEffect;
+        transition-delay: $delay;
+    }
+    &-appear-done {
+        opacity: 1;
+        #{$property}: $finalValue;
+    }
+    &-enter {
+        opacity: 0;
+        #{$property}: $initalValue;
+    }
+    &-enter-active {
+        opacity: 1;
+        #{$property}: $finalValue;
+        transition: opacity $time $transitionEffect,
+            $property $time $transitionEffect;
+        transition-delay: $delay;
+    }
+    &-enter-done {
+        opacity: 1;
+        #{$property}: $finalValue;
+    }
+    &-exit {
+        opacity: 1;
+    }
+    &-exit-active {
+        opacity: 0;
+        transition: opacity $exitTime $transitionEffect;
+    }
+    &-exit-done {
+        opacity: 0;
+        #{$property}: $initalValue;
+    }
+}
+
+@import "partials/navbar";
+@import "partials/footer";
+@import "partials/home";
+@import "partials/product";
+@import "partials/checkout";
+@import "partials/vendors";
+@import "partials/stepper";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    background: var(--chakra-colors-secondary);
+    color: #fff;
+}
+
+::selection {
+    background: var(--chakra-colors-secondary);
+    color: #fff;
+}
+
+.chakra-button__icon {
+    font-size: 15px;
+}
+
+.scroll-btn {
+    opacity: 0;
+    z-index: 0;
+    @include customTransition(0.2s, 0s, ease-in-out, z-index, 0, 999);
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollableX::-webkit-scrollbar {
+    height: 4px;
+}
+
+.scrollable::-webkit-scrollbar-track,
+.scrollableX::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+}
+
+.scrollable::-webkit-scrollbar-thumb,
+.scrollableX::-webkit-scrollbar-thumb {
+    visibility: hidden;
+    background-color: var(
+        --chakra-colors-secondary
+    ); /* color of the scroll thumb */
+    border-radius: 50px; /* roundness of the scroll thumb */
+    border: none; /* creates padding around scroll thumb */
+}
+
+.scrollable:hover::-webkit-scrollbar-thumb,
+.scrollableX:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+.chakra-button,
+.chakra-stack {
+    padding-inline-end: 0px !important;
+    padding-inline-start: 0px !important;
+    -webkit-padding-start: 0px !important;
+    -webkit-padding-end: 0px !important;
+}
+
+.pagination {
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.activePagination {
+    background-color: var(--chakra-colors-secondary);
+    color: #fff !important;
+}
+
+.defPagination,
+.nextPagination,
+.previousPagination {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--chakra-colors-lightgray);
+    color: var(--chakra-colors-gray);
+    padding: 5px 12px !important;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: var(--chakra-fontSizes-lg);
+
+    &:hover {
+        background-color: var(--chakra-colors-secondary);
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.nextPagination,
+.previousPagination {
+    padding: 6px !important;
+}
+
+.defPagination {
+    padding: 5px 15px !important;
+}
+
+.disabledPagination {
+    display: none;
+}
+
+@media (hover: none) {
+    .ignoreHover {
+        background: "transparent !important";
+        color: "gray !important";
+        border-color: "gray !important";
+    }
+}

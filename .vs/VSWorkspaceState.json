@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\resources",
+    "\\resources\\js",
+    "\\resources\\js\\containers",
+    "\\resources\\js\\containers\\Home",
+    "\\resources\\views",
+    "\\resources\\views\\admin",
+    "\\resources\\views\\admin\\products",
+    "\\resources\\views\\auth",
+    "\\resources\\views\\profile"
+  ],
+  "SelectedNode": "\\resources\\js\\routes.js",
+  "PreviewInSolutionExplorer": false
+}

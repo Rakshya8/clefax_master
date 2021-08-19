@@ -1,0 +1,341 @@
+.carousel {
+    height: 46vw;
+}
+
+@media screen and (max-width: 30em) {
+    .carousel {
+        height: 100vh;
+    }
+}
+
+.arrowContainer {
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 40px;
+    border: 1px solid #666;
+    transition: border 0.2s ease-in;
+    &:hover {
+        border: 1px solid var(--chakra-colors-secondary);
+    }
+
+    &:hover .arrow {
+        color: var(--chakra-colors-secondary) !important;
+    }
+
+    &:hover .leftArrow {
+        transform: translate(10px, -12px);
+    }
+
+    &:hover .rightArrow {
+        transform: translate(10px, -12px);
+    }
+}
+
+.leftArrowContainer {
+    z-index: 2;
+    left: 0;
+    transform: translate(30px, -22px);
+}
+
+.rightArrowContainer {
+    right: 0;
+    transform: translate(-30px, -22px);
+}
+
+.arrow {
+    width: 20px !important;
+    color: #666 !important;
+    transition: color 0.2s ease-in;
+}
+
+.leftArrow {
+    transform: translate(31px, -12px);
+    transition: transform 0.2s ease-in;
+}
+
+.rightArrow {
+    transform: translate(-8px, -12px);
+    transition: transform 0.2s ease-in;
+}
+
+@media screen and (max-width: 800px) {
+    .arrowContainer {
+        width: 30px;
+        height: 30px;
+    }
+
+    .arrow {
+        width: 15px !important;
+    }
+
+    .rightArrow {
+        transform: translate(-8px, -18.5px);
+    }
+
+    .leftArrow {
+        transform: translate(22px, -18.5px);
+    }
+}
+
+.subtitle {
+    @include customTransition(0.5s, 0.2s, ease-in-out, height, 0, 28px);
+}
+
+.title {
+    @include customTransition(0.5s, 0.5s);
+}
+
+.header {
+    @include customTransition(
+        0.1s,
+        0s,
+        ease-in,
+        background-color,
+        #fff,
+        var(--chakra-colors-primary)
+    );
+}
+
+.headerImage {
+    @include customTransition(0.5s, 0s, ease-in, transform, translateX(50px));
+}
+
+.headerBtn {
+    @include customTransition(0.2s, 0s, ease-in, opacity, 0, 1);
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+    5% {
+        transform: translate(-5px, -5px);
+    }
+    15% {
+        transform: translate(-10px, -10px);
+    }
+    30% {
+        transform: translate(-20px, -20px);
+    }
+    45% {
+        transform: translate(0, -20px);
+    }
+    60% {
+        transform: translate(20px, -20px);
+    }
+    75% {
+        transform: translate(10px, -10px);
+    }
+    90% {
+        transform: translate(5px, -5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.floatImage {
+    box-sizing: border-box;
+    box-shadow: none;
+    perspective: 600px;
+    animation: float 10s linear infinite;
+    z-index: 2;
+}
+
+.gridItem {
+    overflow: hidden;
+}
+
+.gridItemImage {
+    background-size: cover;
+    cursor: pointer;
+    transition: transform 0.8s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.grid-flex {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    margin: 0 5%;
+}
+
+.subheading {
+    color: var(--chakra-colors-gray);
+    font-size: medium;
+    text-transform: capitalize;
+}
+
+.gridHeadingMd {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 28px !important;
+    margin: 10px 0;
+}
+
+@media (max-width: 1300px) {
+    .subheading {
+        font-size: small;
+    }
+
+    .gridHeadingMd {
+        font-size: 22px !important;
+    }
+}
+
+.outlineButton {
+    border: 1px solid #fff;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 14px !important;
+    width: 220px !important;
+    margin: 40px 0;
+}
+
+@media (max-width: 1300px) {
+    .outlineButton {
+        font-size: 12px !important;
+        width: 200px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .gridHeadingMd {
+        font-size: 18px !important;
+    }
+
+    .outlineButton {
+        width: 150px !important;
+    }
+}
+
+.optionBtn {
+    font-size: small !important;
+    outline: none !important;
+}
+
+.filterHeading {
+    font-size: 14px !important;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    letter-spacing: 0.5px;
+}
+
+.rc-slider-track {
+    height: 10px !important;
+    background-color: #000 !important;
+}
+
+.rc-slider-handle-dragging {
+    box-shadow: none !important;
+}
+
+.filters {
+    @include filterTransition(400px);
+}
+
+@media screen and (max-width: 1100px) {
+    .filters {
+        @include filterTransition(550px);
+    }
+}
+
+.brandCarousel {
+    margin: 100px 20px;
+}
+
+.slideshow {
+    animation: moveSlideshow 40s linear infinite;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes moveSlideshow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.brandImg {
+    max-width: none !important;
+}
+
+.activeFilter {
+    background: var(--chakra-colors-secondary) !important;
+    color: #fff;
+}
+
+.container-load {
+    visibility: hidden;
+    @include customTransition(
+        0.2s,
+        0s,
+        ease-in,
+        visibility,
+        hidden,
+        visible,
+        0.1s
+    );
+}
+
+.search {
+    visibility: hidden;
+    @include customTransition(0.2s, 0s, ease-in, visibility, hidden, visible);
+}
+
+@mixin drawerTransition($value) {
+    opacity: 0;
+
+    &-enter {
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        transform: translateX($value);
+    }
+    &-enter-active {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.25s ease-in, transform 0.25s ease-in;
+    }
+    &-enter-done {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    &-exit {
+        opacity: 1;
+        position: absolute;
+        width: 100%;
+        transform: translateX(0);
+    }
+    &-exit-active {
+        opacity: 0;
+        transform: translateX($value);
+        transition: opacity 0.25s ease-in, transform 0.25s ease-in;
+    }
+    &-exit-done {
+        opacity: 0;
+        transform: translateX($value);
+    }
+}
+
+.drawer-change {
+    @include drawerTransition(-110%);
+}
+
+.drawer-change-child {
+    @include drawerTransition(110%);
+}
